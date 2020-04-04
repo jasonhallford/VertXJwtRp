@@ -151,6 +151,12 @@ public class JwtRpVerticle extends AbstractVerticle {
   // Path handlers
   private void sayHello(RoutingContext routingContext) {
     LOGGER.debug("Handling request to issue JWT token.");
-    routingContext.response().setStatusCode(200).end(routingContext.user().principal().toString());
+
+    // Echo the authenticated principal back as a JSON object.
+    routingContext
+        .response()
+        .setStatusCode(200)
+        .putHeader("Content-Type", "application/json")
+        .end(routingContext.user().principal().toString());
   }
 }
