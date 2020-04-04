@@ -1,0 +1,7 @@
+{
+  "bind-port": 9443,
+  "idp-algorithm" : "RS256",
+  "keys": {
+    "public": "classpath:keys/idp-public.pem"
+  }
+}
